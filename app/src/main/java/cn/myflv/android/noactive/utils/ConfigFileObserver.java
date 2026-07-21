@@ -1,1 +1,63 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnV0aWxzOwoKaW1wb3J0IGFuZHJvaWQub3MuRmlsZU9ic2VydmVyOwoKaW1wb3J0IGphdmEudXRpbC5IYXNoU2V0OwppbXBvcnQgamF2YS51dGlsLlNldDsKCmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5NZW1EYXRhOwoKcHVibGljIGNsYXNzIENvbmZpZ0ZpbGVPYnNlcnZlciBleHRlbmRzIEZpbGVPYnNlcnZlciB7CiAgICBwcml2YXRlIGZpbmFsIE1lbURhdGEgbWVtRGF0YTsKCiAgICBwdWJsaWMgQ29uZmlnRmlsZU9ic2VydmVyKE1lbURhdGEgbWVtRGF0YSkgewogICAgICAgIHN1cGVyKEZyZWV6ZXJDb25maWcuQ29uZmlnRGlyKTsKICAgICAgICB0aGlzLm1lbURhdGEgPSBtZW1EYXRhOwogICAgICAgIEZyZWV6ZXJDb25maWcuY2hlY2tBbmRJbml0KCk7CiAgICAgICAgcmVsb2FkKCk7CiAgICB9CgogICAgQE92ZXJyaWRlCiAgICBwdWJsaWMgdm9pZCBzdGFydFdhdGNoaW5nKCkgewogICAgICAgIHN1cGVyLnN0YXJ0V2F0Y2hpbmcoKTsKICAgICAgICBmb3IgKFN0cmluZyBmaWxlIDogRnJlZXplckNvbmZpZy5saXN0ZW5Db25maWcpIHsKICAgICAgICAgICAgTG9nLmQoIlN0YXJ0IG1vbml0b3IgIiArIGZpbGUpOwogICAgICAgIH0KICAgIH0KCiAgICBAT3ZlcnJpZGUKICAgIHB1YmxpYyB2b2lkIG9uRXZlbnQoaW50IGV2ZW50LCBTdHJpbmcgcGF0aCkgewogICAgICAgIGludCBlID0gZXZlbnQgJiBBTExfRVZFTlRTOwogICAgICAgIHN3aXRjaCAoZSkgewogICAgICAgICAgICBjYXNlIERFTEVURToKICAgICAgICAgICAgY2FzZSBERUxFVEVfU0VMRjoKICAgICAgICAgICAgICAgIEZyZWV6ZXJDb25maWcuY2hlY2tBbmRJbml0KCk7CiAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgY2FzZSBNT0RJRlk6CiAgICAgICAgICAgIGNhc2UgTU9WRV9TRUxGOgogICAgICAgICAgICAgICAgVGhyZWFkVXRpbC5zbGVlcCgyMDAwKTsKICAgICAgICAgICAgICAgIHJlbG9hZCgpOwogICAgICAgIH0KICAgIH0KCiAgICBwdWJsaWMgdm9pZCByZWxvYWQoKSB7CiAgICAgICAgZm9yIChTdHJpbmcgZmlsZSA6IEZyZWV6ZXJDb25maWcubGlzdGVuQ29uZmlnKSB7CiAgICAgICAgICAgIExvZy5kKCJSZWxvYWQgIiArIGZpbGUpOwogICAgICAgICAgICBTZXQ8U3RyaW5nPiBuZXdDb25maWcgPSBuZXcgSGFzaFNldDw+KEZyZWV6ZXJDb25maWcuZ2V0KGZpbGUpKTsKICAgICAgICAgICAgc3dpdGNoIChmaWxlKSB7CiAgICAgICAgICAgICAgICBjYXNlIEZyZWV6ZXJDb25maWcud2hpdGVBcHBDb25maWc6CiAgICAgICAgICAgICAgICAgICAgbWVtRGF0YS5zZXRXaGl0ZUFwcHMobmV3Q29uZmlnKTsKICAgICAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgICAgIGNhc2UgRnJlZXplckNvbmZpZy53aGl0ZVByb2Nlc3NDb25maWc6CiAgICAgICAgICAgICAgICAgICAgbWVtRGF0YS5zZXRXaGl0ZVByb2Nlc3NMaXN0KG5ld0NvbmZpZyk7CiAgICAgICAgICAgICAgICAgICAgYnJlYWs7CiAgICAgICAgICAgICAgICBjYXNlIEZyZWV6ZXJDb25maWcua2lsbFByb2Nlc3NDb25maWc6CiAgICAgICAgICAgICAgICAgICAgbWVtRGF0YS5zZXRLaWxsUHJvY2Vzc0xpc3QobmV3Q29uZmlnKTsKICAgICAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgICAgIGNhc2UgRnJlZXplckNvbmZpZy5ibGFja1N5c3RlbUFwcENvbmZpZzoKICAgICAgICAgICAgICAgICAgICBtZW1EYXRhLnNldEJsYWNrU3lzdGVtQXBwcyhuZXdDb25maWcpOwogICAgICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9Cg==
+package cn.myflv.android.noactive.utils;
+
+import android.os.FileObserver;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import cn.myflv.android.noactive.entity.MemData;
+
+public class ConfigFileObserver extends FileObserver {
+    private final MemData memData;
+
+    public ConfigFileObserver(MemData memData) {
+        super(FreezerConfig.ConfigDir);
+        this.memData = memData;
+        FreezerConfig.checkAndInit();
+        reload();
+    }
+
+    @Override
+    public void startWatching() {
+        super.startWatching();
+        for (String file : FreezerConfig.listenConfig) {
+            Log.d("Start monitor " + file);
+        }
+    }
+
+    @Override
+    public void onEvent(int event, String path) {
+        int e = event & ALL_EVENTS;
+        switch (e) {
+            case DELETE:
+            case DELETE_SELF:
+                FreezerConfig.checkAndInit();
+                break;
+            case MODIFY:
+            case MOVE_SELF:
+                ThreadUtil.sleep(2000);
+                reload();
+        }
+    }
+
+    public void reload() {
+        for (String file : FreezerConfig.listenConfig) {
+            Log.d("Reload " + file);
+            Set<String> newConfig = new HashSet<>(FreezerConfig.get(file));
+            switch (file) {
+                case FreezerConfig.whiteAppConfig:
+                    memData.setWhiteApps(newConfig);
+                    break;
+                case FreezerConfig.whiteProcessConfig:
+                    memData.setWhiteProcessList(newConfig);
+                    break;
+                case FreezerConfig.killProcessConfig:
+                    memData.setKillProcessList(newConfig);
+                    break;
+                case FreezerConfig.blackSystemAppConfig:
+                    memData.setBlackSystemApps(newConfig);
+                    break;
+            }
+        }
+    }
+}

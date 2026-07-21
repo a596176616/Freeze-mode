@@ -1,1 +1,16 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5GaWVsZEVudW07CmltcG9ydCBkZS5yb2J2LmFuZHJvaWQueHBvc2VkLlhwb3NlZEhlbHBlcnM7CmltcG9ydCBsb21ib2suRGF0YTsKCkBEYXRhCnB1YmxpYyBjbGFzcyBQcm9jZXNzU3RhdGVSZWNvcmQgewogICAgcHJpdmF0ZSBmaW5hbCBPYmplY3QgcHJvY2Vzc1N0YXRlUmVjb3JkOwogICAgcHJpdmF0ZSBmaW5hbCBQcm9jZXNzUmVjb3JkIHByb2Nlc3NSZWNvcmQ7CgogICAgcHVibGljIFByb2Nlc3NTdGF0ZVJlY29yZChPYmplY3QgcHJvY2Vzc1N0YXRlUmVjb3JkKSB7CiAgICAgICAgdGhpcy5wcm9jZXNzU3RhdGVSZWNvcmQgPSBwcm9jZXNzU3RhdGVSZWNvcmQ7CiAgICAgICAgdGhpcy5wcm9jZXNzUmVjb3JkID0gbmV3IFByb2Nlc3NSZWNvcmQoWHBvc2VkSGVscGVycy5nZXRPYmplY3RGaWVsZChwcm9jZXNzU3RhdGVSZWNvcmQsIEZpZWxkRW51bS5tQXBwKSk7CiAgICB9Cn0K
+package cn.myflv.android.noactive.server;
+
+import cn.myflv.android.noactive.entity.FieldEnum;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class ProcessStateRecord {
+    private final Object processStateRecord;
+    private final ProcessRecord processRecord;
+
+    public ProcessStateRecord(Object processStateRecord) {
+        this.processStateRecord = processStateRecord;
+        this.processRecord = new ProcessRecord(XposedHelpers.getObjectField(processStateRecord, FieldEnum.mApp));
+    }
+}

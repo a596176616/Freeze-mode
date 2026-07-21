@@ -1,1 +1,35 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBkZS5yb2J2LmFuZHJvaWQueHBvc2VkLlhwb3NlZEhlbHBlcnM7CgpwdWJsaWMgY2xhc3MgRXZlbnQgewoKICAgIHB1YmxpYyBmaW5hbCBzdGF0aWMgU3RyaW5nIEV2ZW50ID0gImFuZHJvaWQuYXBwLnVzYWdlLlVzYWdlRXZlbnRzLkV2ZW50IjsKICAgIHB1YmxpYyBmaW5hbCBzdGF0aWMgU3RyaW5nIEFDVElWSVRZX1JFU1VNRUQgPSAiQUNUSVZJVFlfUkVTVU1FRCI7CiAgICBwdWJsaWMgZmluYWwgc3RhdGljIFN0cmluZyBBQ1RJVklUWV9QQVVTRUQgPSAiQUNUSVZJVFlfUEFVU0VEIjsKICAgIHB1YmxpYyBmaW5hbCBzdGF0aWMgU3RyaW5nIEFDVElWSVRZX1NUT1BQRUQgPSAiQUNUSVZJVFlfU1RPUFBFRCI7CiAgICBwdWJsaWMgZmluYWwgc3RhdGljIFN0cmluZyBBQ1RJVklUWV9ERVNUUk9ZRUQgPSAiQUNUSVZJVFlfREVTVFJPWUVEIjsKCiAgICBwdWJsaWMgc3RhdGljIENsYXNzPD8+IGdldEV2ZW50KENsYXNzTG9hZGVyIGNsYXNzTG9hZGVyKSB7CiAgICAgICAgcmV0dXJuIFhwb3NlZEhlbHBlcnMuZmluZENsYXNzKEV2ZW50LCBjbGFzc0xvYWRlcik7CiAgICB9CgogICAgcHVibGljIHN0YXRpYyBpbnQgQUNUSVZJVFlfUkVTVU1FRChDbGFzc0xvYWRlciBjbGFzc0xvYWRlcikgewogICAgICAgIENsYXNzPD8+IEV2ZW50ID0gZ2V0RXZlbnQoY2xhc3NMb2FkZXIpOwogICAgICAgIHJldHVybiBYcG9zZWRIZWxwZXJzLmdldFN0YXRpY0ludEZpZWxkKEV2ZW50LCBBQ1RJVklUWV9SRVNVTUVEKTsKICAgIH0KCiAgICBwdWJsaWMgc3RhdGljIGludCBBQ1RJVklUWV9QQVVTRUQoQ2xhc3NMb2FkZXIgY2xhc3NMb2FkZXIpIHsKICAgICAgICBDbGFzczw/PiBFdmVudCA9IGdldEV2ZW50KGNsYXNzTG9hZGVyKTsKICAgICAgICByZXR1cm4gWHBvc2VkSGVscGVycy5nZXRTdGF0aWNJbnRGaWVsZChFdmVudCwgQUNUSVZJVFlfUEFVU0VEKTsKICAgIH0KICAgIHB1YmxpYyBzdGF0aWMgaW50IEFDVElWSVRZX1NUT1BQRUQoQ2xhc3NMb2FkZXIgY2xhc3NMb2FkZXIpIHsKICAgICAgICBDbGFzczw/PiBFdmVudCA9IGdldEV2ZW50KGNsYXNzTG9hZGVyKTsKICAgICAgICByZXR1cm4gWHBvc2VkSGVscGVycy5nZXRTdGF0aWNJbnRGaWVsZChFdmVudCwgQUNUSVZJVFlfU1RPUFBFRCk7CiAgICB9CgogICAgcHVibGljIHN0YXRpYyBpbnQgQUNUSVZJVFlfREVTVFJPWUVEKENsYXNzTG9hZGVyIGNsYXNzTG9hZGVyKSB7CiAgICAgICAgQ2xhc3M8Pz4gRXZlbnQgPSBnZXRFdmVudChjbGFzc0xvYWRlcik7CiAgICAgICAgcmV0dXJuIFhwb3NlZEhlbHBlcnMuZ2V0U3RhdGljSW50RmllbGQoRXZlbnQsIEFDVElWSVRZX0RFU1RST1lFRCk7CiAgICB9Cn0K
+package cn.myflv.android.noactive.server;
+
+import de.robv.android.xposed.XposedHelpers;
+
+public class Event {
+
+    public final static String Event = "android.app.usage.UsageEvents.Event";
+    public final static String ACTIVITY_RESUMED = "ACTIVITY_RESUMED";
+    public final static String ACTIVITY_PAUSED = "ACTIVITY_PAUSED";
+    public final static String ACTIVITY_STOPPED = "ACTIVITY_STOPPED";
+    public final static String ACTIVITY_DESTROYED = "ACTIVITY_DESTROYED";
+
+    public static Class<?> getEvent(ClassLoader classLoader) {
+        return XposedHelpers.findClass(Event, classLoader);
+    }
+
+    public static int ACTIVITY_RESUMED(ClassLoader classLoader) {
+        Class<?> Event = getEvent(classLoader);
+        return XposedHelpers.getStaticIntField(Event, ACTIVITY_RESUMED);
+    }
+
+    public static int ACTIVITY_PAUSED(ClassLoader classLoader) {
+        Class<?> Event = getEvent(classLoader);
+        return XposedHelpers.getStaticIntField(Event, ACTIVITY_PAUSED);
+    }
+    public static int ACTIVITY_STOPPED(ClassLoader classLoader) {
+        Class<?> Event = getEvent(classLoader);
+        return XposedHelpers.getStaticIntField(Event, ACTIVITY_STOPPED);
+    }
+
+    public static int ACTIVITY_DESTROYED(ClassLoader classLoader) {
+        Class<?> Event = getEvent(classLoader);
+        return XposedHelpers.getStaticIntField(Event, ACTIVITY_DESTROYED);
+    }
+}

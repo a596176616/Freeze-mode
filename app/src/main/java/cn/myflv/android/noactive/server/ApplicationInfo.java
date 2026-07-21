@@ -1,1 +1,32 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5GaWVsZEVudW07CmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnV0aWxzLkxvZzsKaW1wb3J0IGRlLnJvYnYuYW5kcm9pZC54cG9zZWQuWHBvc2VkSGVscGVyczsKaW1wb3J0IGxvbWJvay5EYXRhOwoKQERhdGEKcHVibGljIGNsYXNzIEFwcGxpY2F0aW9uSW5mbyB7CiAgICBwcml2YXRlIGZpbmFsIGludCBGTEFHX1NZU1RFTTsKICAgIHByaXZhdGUgZmluYWwgaW50IEZMQUdfVVBEQVRFRF9TWVNURU1fQVBQOwogICAgcHJpdmF0ZSBmaW5hbCBpbnQgZmxhZ3M7CiAgICBwcml2YXRlIGZpbmFsIGludCB1aWQ7CiAgICBwcml2YXRlIGZpbmFsIFN0cmluZyBwcm9jZXNzTmFtZTsKICAgIHByaXZhdGUgZmluYWwgU3RyaW5nIHBhY2thZ2VOYW1lOwogICAgcHJpdmF0ZSBPYmplY3QgYXBwbGljYXRpb25JbmZvOwoKICAgIHB1YmxpYyBBcHBsaWNhdGlvbkluZm8oT2JqZWN0IGFwcGxpY2F0aW9uSW5mbykgewogICAgICAgIHRoaXMuYXBwbGljYXRpb25JbmZvID0gYXBwbGljYXRpb25JbmZvOwogICAgICAgIHRoaXMucHJvY2Vzc05hbWUgPSAoU3RyaW5nKSBYcG9zZWRIZWxwZXJzLmdldE9iamVjdEZpZWxkKGFwcGxpY2F0aW9uSW5mbywgRmllbGRFbnVtLnByb2Nlc3NOYW1lKTsKICAgICAgICB0aGlzLnBhY2thZ2VOYW1lID0gKFN0cmluZykgWHBvc2VkSGVscGVycy5nZXRPYmplY3RGaWVsZChhcHBsaWNhdGlvbkluZm8sIEZpZWxkRW51bS5wYWNrYWdlTmFtZSk7CiAgICAgICAgdGhpcy5mbGFncyA9IFhwb3NlZEhlbHBlcnMuZ2V0SW50RmllbGQoYXBwbGljYXRpb25JbmZvLCBGaWVsZEVudW0uZmxhZ3MpOwogICAgICAgIHRoaXMudWlkID0gWHBvc2VkSGVscGVycy5nZXRJbnRGaWVsZChhcHBsaWNhdGlvbkluZm8sIEZpZWxkRW51bS51aWQpOwogICAgICAgIHRoaXMuRkxBR19TWVNURU0gPSBYcG9zZWRIZWxwZXJzLmdldFN0YXRpY0ludEZpZWxkKGFwcGxpY2F0aW9uSW5mby5nZXRDbGFzcygpLCAiRkxBR19TWVNURU0iKTsKICAgICAgICB0aGlzLkZMQUdfVVBEQVRFRF9TWVNURU1fQVBQID0gWHBvc2VkSGVscGVycy5nZXRTdGF0aWNJbnRGaWVsZChhcHBsaWNhdGlvbkluZm8uZ2V0Q2xhc3MoKSwgIkZMQUdfVVBEQVRFRF9TWVNURU1fQVBQIik7CiAgICB9CgoKICAgIHB1YmxpYyBib29sZWFuIGlzU3lzdGVtKCkgewogICAgICAgIHJldHVybiAoZmxhZ3MgJiAoRkxBR19TWVNURU0gfCBGTEFHX1VQREFURURfU1lTVEVNX0FQUCkpICE9IDA7CiAgICB9Cn0K
+package cn.myflv.android.noactive.server;
+
+import cn.myflv.android.noactive.entity.FieldEnum;
+import cn.myflv.android.noactive.utils.Log;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class ApplicationInfo {
+    private final int FLAG_SYSTEM;
+    private final int FLAG_UPDATED_SYSTEM_APP;
+    private final int flags;
+    private final int uid;
+    private final String processName;
+    private final String packageName;
+    private Object applicationInfo;
+
+    public ApplicationInfo(Object applicationInfo) {
+        this.applicationInfo = applicationInfo;
+        this.processName = (String) XposedHelpers.getObjectField(applicationInfo, FieldEnum.processName);
+        this.packageName = (String) XposedHelpers.getObjectField(applicationInfo, FieldEnum.packageName);
+        this.flags = XposedHelpers.getIntField(applicationInfo, FieldEnum.flags);
+        this.uid = XposedHelpers.getIntField(applicationInfo, FieldEnum.uid);
+        this.FLAG_SYSTEM = XposedHelpers.getStaticIntField(applicationInfo.getClass(), "FLAG_SYSTEM");
+        this.FLAG_UPDATED_SYSTEM_APP = XposedHelpers.getStaticIntField(applicationInfo.getClass(), "FLAG_UPDATED_SYSTEM_APP");
+    }
+
+
+    public boolean isSystem() {
+        return (flags & (FLAG_SYSTEM | FLAG_UPDATED_SYSTEM_APP)) != 0;
+    }
+}

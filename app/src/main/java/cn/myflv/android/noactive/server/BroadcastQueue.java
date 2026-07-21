@@ -1,1 +1,16 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5GaWVsZEVudW07CmltcG9ydCBkZS5yb2J2LmFuZHJvaWQueHBvc2VkLlhwb3NlZEhlbHBlcnM7CmltcG9ydCBsb21ib2suRGF0YTsKCkBEYXRhCnB1YmxpYyBjbGFzcyBCcm9hZGNhc3RRdWV1ZSB7CiAgICBwcml2YXRlIGZpbmFsIE9iamVjdCBicm9hZGNhc3RRdWV1ZTsKICAgIHByaXZhdGUgQWN0aXZpdHlNYW5hZ2VyU2VydmljZSBhY3Rpdml0eU1hbmFnZXJTZXJ2aWNlOwoKICAgIHB1YmxpYyBCcm9hZGNhc3RRdWV1ZShPYmplY3QgYnJvYWRjYXN0UXVldWUpIHsKICAgICAgICB0aGlzLmJyb2FkY2FzdFF1ZXVlID0gYnJvYWRjYXN0UXVldWU7CiAgICAgICAgdGhpcy5hY3Rpdml0eU1hbmFnZXJTZXJ2aWNlID0gbmV3IEFjdGl2aXR5TWFuYWdlclNlcnZpY2UoWHBvc2VkSGVscGVycy5nZXRPYmplY3RGaWVsZChicm9hZGNhc3RRdWV1ZSwgRmllbGRFbnVtLm1TZXJ2aWNlKSk7CiAgICB9Cn0K
+package cn.myflv.android.noactive.server;
+
+import cn.myflv.android.noactive.entity.FieldEnum;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class BroadcastQueue {
+    private final Object broadcastQueue;
+    private ActivityManagerService activityManagerService;
+
+    public BroadcastQueue(Object broadcastQueue) {
+        this.broadcastQueue = broadcastQueue;
+        this.activityManagerService = new ActivityManagerService(XposedHelpers.getObjectField(broadcastQueue, FieldEnum.mService));
+    }
+}

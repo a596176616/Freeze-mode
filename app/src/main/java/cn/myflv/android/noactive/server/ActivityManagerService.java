@@ -1,1 +1,81 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCgppbXBvcnQgYW5kcm9pZC5jb250ZW50LkNvbnRleHQ7CmltcG9ydCBhbmRyb2lkLmNvbnRlbnQucG0uQXBwbGljYXRpb25JbmZvOwppbXBvcnQgYW5kcm9pZC5jb250ZW50LnBtLlBhY2thZ2VNYW5hZ2VyOwoKaW1wb3J0IGphdmEubGFuZy5yZWZsZWN0Lkludm9jYXRpb25UYXJnZXRFeGNlcHRpb247CgppbXBvcnQgY24ubXlmbHYuYW5kcm9pZC5ub2FjdGl2ZS5lbnRpdHkuQ2xhc3NFbnVtOwppbXBvcnQgY24ubXlmbHYuYW5kcm9pZC5ub2FjdGl2ZS5lbnRpdHkuRmllbGRFbnVtOwppbXBvcnQgY24ubXlmbHYuYW5kcm9pZC5ub2FjdGl2ZS5lbnRpdHkuTWV0aG9kRW51bTsKaW1wb3J0IGNuLm15Zmx2LmFuZHJvaWQubm9hY3RpdmUudXRpbHMuTG9nOwppbXBvcnQgZGUucm9idi5hbmRyb2lkLnhwb3NlZC5YcG9zZWRIZWxwZXJzOwppbXBvcnQgbG9tYm9rLkRhdGE7CgpARGF0YQpwdWJsaWMgY2xhc3MgQWN0aXZpdHlNYW5hZ2VyU2VydmljZSB7CiAgICBwdWJsaWMgZmluYWwgc3RhdGljIGludCBNQUlOX1VTRVIgPSAwOwogICAgcHJpdmF0ZSBmaW5hbCBPYmplY3QgYWN0aXZpdHlNYW5hZ2VyU2VydmljZTsKICAgIHByaXZhdGUgZmluYWwgUHJvY2Vzc0xpc3QgcHJvY2Vzc0xpc3Q7CiAgICBwcml2YXRlIGZpbmFsIEFjdGl2ZVNlcnZpY2VzIGFjdGl2ZVNlcnZpY2VzOwogICAgcHJpdmF0ZSBmaW5hbCBDb250ZXh0IGNvbnRleHQ7CgogICAgcHVibGljIEFjdGl2aXR5TWFuYWdlclNlcnZpY2UoT2JqZWN0IGFjdGl2aXR5TWFuYWdlclNlcnZpY2UpIHsKICAgICAgICB0aGlzLmFjdGl2aXR5TWFuYWdlclNlcnZpY2UgPSBhY3Rpdml0eU1hbmFnZXJTZXJ2aWNlOwogICAgICAgIHRoaXMucHJvY2Vzc0xpc3QgPSBuZXcgUHJvY2Vzc0xpc3QoWHBvc2VkSGVscGVycy5nZXRPYmplY3RGaWVsZChhY3Rpdml0eU1hbmFnZXJTZXJ2aWNlLCBGaWVsZEVudW0ubVByb2Nlc3NMaXN0KSk7CiAgICAgICAgdGhpcy5hY3RpdmVTZXJ2aWNlcyA9IG5ldyBBY3RpdmVTZXJ2aWNlcyhYcG9zZWRIZWxwZXJzLmdldE9iamVjdEZpZWxkKGFjdGl2aXR5TWFuYWdlclNlcnZpY2UsIEZpZWxkRW51bS5tU2VydmljZXMpKTsKICAgICAgICB0aGlzLmNvbnRleHQgPSAoQ29udGV4dCkgWHBvc2VkSGVscGVycy5nZXRPYmplY3RGaWVsZChhY3Rpdml0eU1hbmFnZXJTZXJ2aWNlLCBGaWVsZEVudW0ubUNvbnRleHQpOwogICAgfQoKICAgIHB1YmxpYyBib29sZWFuIGlzQXBwRm9yZWdyb3VuZChTdHJpbmcgcGFja2FnZU5hbWUpIHsKICAgICAgICBBcHBsaWNhdGlvbkluZm8gYXBwbGljYXRpb25JbmZvID0gZ2V0QXBwbGljYXRpb25JbmZvKHBhY2thZ2VOYW1lKTsKICAgICAgICBpZiAoYXBwbGljYXRpb25JbmZvID09IG51bGwpIHsKICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgfQogICAgICAgIGludCB1aWQgPSBhcHBsaWNhdGlvbkluZm8udWlkOwogICAgICAgIENsYXNzPD8+IGNsYXp6ID0gYWN0aXZpdHlNYW5hZ2VyU2VydmljZS5nZXRDbGFzcygpOwogICAgICAgIHdoaWxlIChjbGF6eiAhPSBudWxsICYmICFjbGF6ei5nZXROYW1lKCkuZXF1YWxzKE9iamVjdC5jbGFzcy5nZXROYW1lKCkpICYmICFjbGF6ei5nZXROYW1lKCkuZXF1YWxzKENsYXNzRW51bS5BY3Rpdml0eU1hbmFnZXJTZXJ2aWNlKSkgewogICAgICAgICAgICBjbGF6eiA9IGNsYXp6LmdldFN1cGVyY2xhc3MoKTsKICAgICAgICB9CiAgICAgICAgaWYgKGNsYXp6ID09IG51bGwgfHwgIWNsYXp6LmdldE5hbWUoKS5lcXVhbHMoQ2xhc3NFbnVtLkFjdGl2aXR5TWFuYWdlclNlcnZpY2UpKSB7CiAgICAgICAgICAgIExvZy5kKCJzdXBlciBhY3Rpdml0eU1hbmFnZXJTZXJ2aWNlIGlzIG5vdCBmb3VuZCIpOwogICAgICAgICAgICByZXR1cm4gdHJ1ZTsKICAgICAgICB9CiAgICAgICAgdHJ5IHsKICAgICAgICAgICAgcmV0dXJuIChib29sZWFuKSBYcG9zZWRIZWxwZXJzLmZpbmRNZXRob2RCZXN0TWF0Y2goY2xhenosIE1ldGhvZEVudW0uaXNBcHBGb3JlZ3JvdW5kLCB1aWQpLmludm9rZShhY3Rpdml0eU1hbmFnZXJTZXJ2aWNlLCB1aWQpOwogICAgICAgIH0gY2F0Y2ggKElsbGVnYWxBY2Nlc3NFeGNlcHRpb24gfCBJbnZvY2F0aW9uVGFyZ2V0RXhjZXB0aW9uIGUpIHsKICAgICAgICAgICAgTG9nLmQoImNhbGwgaXNBcHBGb3JlZ3JvdW5kIG1ldGhvZCBlcnJvciIpOwogICAgICAgIH0KICAgICAgICByZXR1cm4gdHJ1ZTsKICAgIH0KCiAgICBwdWJsaWMgYm9vbGVhbiBpc1N5c3RlbShTdHJpbmcgcGFja2FnZU5hbWUpIHsKICAgICAgICBBcHBsaWNhdGlvbkluZm8gYXBwbGljYXRpb25JbmZvID0gZ2V0QXBwbGljYXRpb25JbmZvKHBhY2thZ2VOYW1lKTsKICAgICAgICBpZiAoYXBwbGljYXRpb25JbmZvID09IG51bGwpIHsKICAgICAgICAgICAgcmV0dXJuIHRydWU7CiAgICAgICAgfQogICAgICAgIHJldHVybiAoYXBwbGljYXRpb25JbmZvLmZsYWdzICYgKEFwcGxpY2F0aW9uSW5mby5GTEFHX1NZU1RFTSB8IEFwcGxpY2F0aW9uSW5mby5GTEFHX1VQREFURURfU1lTVEVNX0FQUCkpICE9IDA7CiAgICB9CgogICAgcHVibGljIGJvb2xlYW4gaXNJbXBvcnRhbnRTeXN0ZW1BcHAoU3RyaW5nIHBhY2thZ2VOYW1lKSB7CiAgICAgICAgQXBwbGljYXRpb25JbmZvIGFwcGxpY2F0aW9uSW5mbyA9IGdldEFwcGxpY2F0aW9uSW5mbyhwYWNrYWdlTmFtZSk7CiAgICAgICAgaWYgKGFwcGxpY2F0aW9uSW5mbyA9PSBudWxsKSB7CiAgICAgICAgICAgIHJldHVybiB0cnVlOwogICAgICAgIH0KICAgICAgICByZXR1cm4gYXBwbGljYXRpb25JbmZvLnVpZCA8IDEwMDAwOwogICAgfQoKICAgIHB1YmxpYyBBcHBsaWNhdGlvbkluZm8gZ2V0QXBwbGljYXRpb25JbmZvKFN0cmluZyBwYWNrYWdlTmFtZSkgewogICAgICAgIHRyeSB7CiAgICAgICAgICAgIFBhY2thZ2VNYW5hZ2VyIHBhY2thZ2VNYW5hZ2VyID0gY29udGV4dC5nZXRQYWNrYWdlTWFuYWdlcigpOwogICAgICAgICAgICByZXR1cm4gcGFja2FnZU1hbmFnZXIuZ2V0QXBwbGljYXRpb25JbmZvKHBhY2thZ2VOYW1lLCBQYWNrYWdlTWFuYWdlci5HRVRfVU5JTlNUQUxMRURfUEFDS0FHRVMpOwogICAgICAgIH0gY2F0Y2ggKFBhY2thZ2VNYW5hZ2VyLk5hbWVOb3RGb3VuZEV4Y2VwdGlvbiBlKSB7CiAgICAgICAgICAgIExvZy5kKHBhY2thZ2VOYW1lICsgIiBub3QgZm91bmQiKTsKICAgICAgICB9CiAgICAgICAgcmV0dXJuIG51bGw7CiAgICB9CgoKfQo=
+package cn.myflv.android.noactive.server;
+
+
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+
+import java.lang.reflect.InvocationTargetException;
+
+import cn.myflv.android.noactive.entity.ClassEnum;
+import cn.myflv.android.noactive.entity.FieldEnum;
+import cn.myflv.android.noactive.entity.MethodEnum;
+import cn.myflv.android.noactive.utils.Log;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class ActivityManagerService {
+    public final static int MAIN_USER = 0;
+    private final Object activityManagerService;
+    private final ProcessList processList;
+    private final ActiveServices activeServices;
+    private final Context context;
+
+    public ActivityManagerService(Object activityManagerService) {
+        this.activityManagerService = activityManagerService;
+        this.processList = new ProcessList(XposedHelpers.getObjectField(activityManagerService, FieldEnum.mProcessList));
+        this.activeServices = new ActiveServices(XposedHelpers.getObjectField(activityManagerService, FieldEnum.mServices));
+        this.context = (Context) XposedHelpers.getObjectField(activityManagerService, FieldEnum.mContext);
+    }
+
+    public boolean isAppForeground(String packageName) {
+        ApplicationInfo applicationInfo = getApplicationInfo(packageName);
+        if (applicationInfo == null) {
+            return true;
+        }
+        int uid = applicationInfo.uid;
+        Class<?> clazz = activityManagerService.getClass();
+        while (clazz != null && !clazz.getName().equals(Object.class.getName()) && !clazz.getName().equals(ClassEnum.ActivityManagerService)) {
+            clazz = clazz.getSuperclass();
+        }
+        if (clazz == null || !clazz.getName().equals(ClassEnum.ActivityManagerService)) {
+            Log.d("super activityManagerService is not found");
+            return true;
+        }
+        try {
+            return (boolean) XposedHelpers.findMethodBestMatch(clazz, MethodEnum.isAppForeground, uid).invoke(activityManagerService, uid);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            Log.d("call isAppForeground method error");
+        }
+        return true;
+    }
+
+    public boolean isSystem(String packageName) {
+        ApplicationInfo applicationInfo = getApplicationInfo(packageName);
+        if (applicationInfo == null) {
+            return true;
+        }
+        return (applicationInfo.flags & (ApplicationInfo.FLAG_SYSTEM | ApplicationInfo.FLAG_UPDATED_SYSTEM_APP)) != 0;
+    }
+
+    public boolean isImportantSystemApp(String packageName) {
+        ApplicationInfo applicationInfo = getApplicationInfo(packageName);
+        if (applicationInfo == null) {
+            return true;
+        }
+        return applicationInfo.uid < 10000;
+    }
+
+    public ApplicationInfo getApplicationInfo(String packageName) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            return packageManager.getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.d(packageName + " not found");
+        }
+        return null;
+    }
+
+
+}

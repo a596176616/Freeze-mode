@@ -1,1 +1,16 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5GaWVsZEVudW07CmltcG9ydCBkZS5yb2J2LmFuZHJvaWQueHBvc2VkLlhwb3NlZEhlbHBlcnM7CmltcG9ydCBsb21ib2suRGF0YTsKCkBEYXRhCnB1YmxpYyBjbGFzcyBDb21wb25lbnROYW1lIHsKICAgIHByaXZhdGUgZmluYWwgT2JqZWN0IGNvbXBvbmVudE5hbWU7CiAgICBwcml2YXRlIGZpbmFsIFN0cmluZyBwYWNrYWdlTmFtZTsKCiAgICBwdWJsaWMgQ29tcG9uZW50TmFtZShPYmplY3QgY29tcG9uZW50TmFtZSkgewogICAgICAgIHRoaXMuY29tcG9uZW50TmFtZSA9IGNvbXBvbmVudE5hbWU7CiAgICAgICAgdGhpcy5wYWNrYWdlTmFtZSA9IChTdHJpbmcpIFhwb3NlZEhlbHBlcnMuZ2V0T2JqZWN0RmllbGQoY29tcG9uZW50TmFtZSwgRmllbGRFbnVtLm1QYWNrYWdlKTsKICAgIH0KfQo=
+package cn.myflv.android.noactive.server;
+
+import cn.myflv.android.noactive.entity.FieldEnum;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class ComponentName {
+    private final Object componentName;
+    private final String packageName;
+
+    public ComponentName(Object componentName) {
+        this.componentName = componentName;
+        this.packageName = (String) XposedHelpers.getObjectField(componentName, FieldEnum.mPackage);
+    }
+}

@@ -1,1 +1,19 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnV0aWxzOwoKcHVibGljIGNsYXNzIFRocmVhZFV0aWwgewogICAgcHVibGljIHN0YXRpYyB2b2lkIHNsZWVwKGludCBtcykgewogICAgICAgIHRyeSB7CiAgICAgICAgICAgIFRocmVhZC5zbGVlcChtcyk7CiAgICAgICAgfSBjYXRjaCAoSW50ZXJydXB0ZWRFeGNlcHRpb24gaWdub3JlZCkgewogICAgICAgICAgICBMb2cudygiVGhyZWFkIHNsZWVwIGZhaWxlZCIpOwogICAgICAgIH0KICAgIH0KCiAgICBwdWJsaWMgc3RhdGljIHZvaWQgc2xlZXAobG9uZyBtcykgewogICAgICAgIHRyeSB7CiAgICAgICAgICAgIFRocmVhZC5zbGVlcChtcyk7CiAgICAgICAgfSBjYXRjaCAoSW50ZXJydXB0ZWRFeGNlcHRpb24gaWdub3JlZCkgewogICAgICAgICAgICBMb2cudygiVGhyZWFkIHNsZWVwIGZhaWxlZCIpOwogICAgICAgIH0KICAgIH0KfQo=
+package cn.myflv.android.noactive.utils;
+
+public class ThreadUtil {
+    public static void sleep(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException ignored) {
+            Log.w("Thread sleep failed");
+        }
+    }
+
+    public static void sleep(long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException ignored) {
+            Log.w("Thread sleep failed");
+        }
+    }
+}

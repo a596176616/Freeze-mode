@@ -1,1 +1,19 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5GaWVsZEVudW07CmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5NZXRob2RFbnVtOwppbXBvcnQgZGUucm9idi5hbmRyb2lkLnhwb3NlZC5YcG9zZWRIZWxwZXJzOwppbXBvcnQgbG9tYm9rLkRhdGE7CgpARGF0YQpwdWJsaWMgY2xhc3MgQWN0aXZlU2VydmljZXMgewogICAgcHJpdmF0ZSBmaW5hbCBPYmplY3QgYWN0aXZlU2VydmljZXM7CgogICAgcHVibGljIEFjdGl2ZVNlcnZpY2VzKE9iamVjdCBhY3RpdmVTZXJ2aWNlcykgewogICAgICAgIHRoaXMuYWN0aXZlU2VydmljZXMgPSBhY3RpdmVTZXJ2aWNlczsKICAgIH0KCiAgICBwdWJsaWMgdm9pZCBraWxsU2VydmljZXNMb2NrZWQoUHJvY2Vzc1JlY29yZCBwcm9jZXNzUmVjb3JkKSB7CiAgICAgICAgWHBvc2VkSGVscGVycy5jYWxsTWV0aG9kKGFjdGl2ZVNlcnZpY2VzLCBNZXRob2RFbnVtLmtpbGxTZXJ2aWNlc0xvY2tlZCwgcHJvY2Vzc1JlY29yZC5nZXRQcm9jZXNzUmVjb3JkKCksIGZhbHNlKTsKICAgIH0KfQo=
+package cn.myflv.android.noactive.server;
+
+import cn.myflv.android.noactive.entity.FieldEnum;
+import cn.myflv.android.noactive.entity.MethodEnum;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class ActiveServices {
+    private final Object activeServices;
+
+    public ActiveServices(Object activeServices) {
+        this.activeServices = activeServices;
+    }
+
+    public void killServicesLocked(ProcessRecord processRecord) {
+        XposedHelpers.callMethod(activeServices, MethodEnum.killServicesLocked, processRecord.getProcessRecord(), false);
+    }
+}

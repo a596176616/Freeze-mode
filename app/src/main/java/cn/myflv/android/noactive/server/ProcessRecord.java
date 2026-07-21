@@ -1,1 +1,37 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBhbmRyb2lkLmFubm90YXRpb24uVGFyZ2V0QXBpOwppbXBvcnQgYW5kcm9pZC5vcy5CdWlsZDsKCmltcG9ydCBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLmVudGl0eS5GaWVsZEVudW07CmltcG9ydCBkZS5yb2J2LmFuZHJvaWQueHBvc2VkLlhwb3NlZEhlbHBlcnM7CmltcG9ydCBsb21ib2suRGF0YTsKCkBEYXRhCnB1YmxpYyBjbGFzcyBQcm9jZXNzUmVjb3JkIHsKICAgIHByaXZhdGUgZmluYWwgaW50IHVpZDsKICAgIHByaXZhdGUgZmluYWwgaW50IHBpZDsKICAgIHByaXZhdGUgZmluYWwgU3RyaW5nIHByb2Nlc3NOYW1lOwogICAgcHJpdmF0ZSBmaW5hbCBpbnQgdXNlcklkOwogICAgcHJpdmF0ZSBmaW5hbCBBcHBsaWNhdGlvbkluZm8gYXBwbGljYXRpb25JbmZvOwogICAgcHJpdmF0ZSBPYmplY3QgcHJvY2Vzc1JlY29yZDsKCgogICAgcHVibGljIFByb2Nlc3NSZWNvcmQoT2JqZWN0IHByb2Nlc3NSZWNvcmQpIHsKICAgICAgICB0aGlzLnByb2Nlc3NSZWNvcmQgPSBwcm9jZXNzUmVjb3JkOwogICAgICAgIGlmIChCdWlsZC5WRVJTSU9OLlNES19JTlQgPj0gQnVpbGQuVkVSU0lPTl9DT0RFUy5TKSB7CiAgICAgICAgICAgIHRoaXMucGlkID0gWHBvc2VkSGVscGVycy5nZXRJbnRGaWVsZChwcm9jZXNzUmVjb3JkLCBGaWVsZEVudW0ubVBpZCk7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgdGhpcy5waWQgPSBYcG9zZWRIZWxwZXJzLmdldEludEZpZWxkKHByb2Nlc3NSZWNvcmQsIEZpZWxkRW51bS5waWQpOwogICAgICAgIH0KICAgICAgICB0aGlzLnVpZCA9IFhwb3NlZEhlbHBlcnMuZ2V0SW50RmllbGQocHJvY2Vzc1JlY29yZCwgRmllbGRFbnVtLnVpZCk7CiAgICAgICAgdGhpcy5wcm9jZXNzTmFtZSA9IChTdHJpbmcpIFhwb3NlZEhlbHBlcnMuZ2V0T2JqZWN0RmllbGQocHJvY2Vzc1JlY29yZCwgRmllbGRFbnVtLnByb2Nlc3NOYW1lKTsKICAgICAgICB0aGlzLnVzZXJJZCA9IFhwb3NlZEhlbHBlcnMuZ2V0SW50RmllbGQocHJvY2Vzc1JlY29yZCwgRmllbGRFbnVtLnVzZXJJZCk7CiAgICAgICAgdGhpcy5hcHBsaWNhdGlvbkluZm8gPSBuZXcgQXBwbGljYXRpb25JbmZvKFhwb3NlZEhlbHBlcnMuZ2V0T2JqZWN0RmllbGQocHJvY2Vzc1JlY29yZCwgRmllbGRFbnVtLmluZm8pKTsKICAgIH0KCiAgICBwdWJsaWMgdm9pZCBzZXRDdXJBZGooaW50IGN1ckFkaikgewogICAgICAgIFhwb3NlZEhlbHBlcnMuc2V0SW50RmllbGQocHJvY2Vzc1JlY29yZCwgRmllbGRFbnVtLmN1ckFkaiwgY3VyQWRqKTsKICAgIH0KCn0K
+package cn.myflv.android.noactive.server;
+
+import android.annotation.TargetApi;
+import android.os.Build;
+
+import cn.myflv.android.noactive.entity.FieldEnum;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class ProcessRecord {
+    private final int uid;
+    private final int pid;
+    private final String processName;
+    private final int userId;
+    private final ApplicationInfo applicationInfo;
+    private Object processRecord;
+
+
+    public ProcessRecord(Object processRecord) {
+        this.processRecord = processRecord;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            this.pid = XposedHelpers.getIntField(processRecord, FieldEnum.mPid);
+        } else {
+            this.pid = XposedHelpers.getIntField(processRecord, FieldEnum.pid);
+        }
+        this.uid = XposedHelpers.getIntField(processRecord, FieldEnum.uid);
+        this.processName = (String) XposedHelpers.getObjectField(processRecord, FieldEnum.processName);
+        this.userId = XposedHelpers.getIntField(processRecord, FieldEnum.userId);
+        this.applicationInfo = new ApplicationInfo(XposedHelpers.getObjectField(processRecord, FieldEnum.info));
+    }
+
+    public void setCurAdj(int curAdj) {
+        XposedHelpers.setIntField(processRecord, FieldEnum.curAdj, curAdj);
+    }
+
+}

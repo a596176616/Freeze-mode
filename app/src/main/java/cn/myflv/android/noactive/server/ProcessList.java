@@ -1,1 +1,34 @@
-cGFja2FnZSBjbi5teWZsdi5hbmRyb2lkLm5vYWN0aXZlLnNlcnZlcjsKCmltcG9ydCBqYXZhLnV0aWwuQXJyYXlMaXN0OwppbXBvcnQgamF2YS51dGlsLkxpc3Q7CgppbXBvcnQgY24ubXlmbHYuYW5kcm9pZC5ub2FjdGl2ZS5lbnRpdHkuQ2xhc3NFbnVtOwppbXBvcnQgY24ubXlmbHYuYW5kcm9pZC5ub2FjdGl2ZS5lbnRpdHkuRmllbGRFbnVtOwppbXBvcnQgY24ubXlmbHYuYW5kcm9pZC5ub2FjdGl2ZS5lbnRpdHkuTWV0aG9kRW51bTsKaW1wb3J0IGRlLnJvYnYuYW5kcm9pZC54cG9zZWQuWHBvc2VkSGVscGVyczsKaW1wb3J0IGxvbWJvay5EYXRhOwoKQERhdGEKcHVibGljIGNsYXNzIFByb2Nlc3NMaXN0IHsKICAgIHByaXZhdGUgZmluYWwgT2JqZWN0IHByb2Nlc3NMaXN0OwogICAgcHJpdmF0ZSBmaW5hbCBMaXN0PFByb2Nlc3NSZWNvcmQ+IHByb2Nlc3NSZWNvcmRzID0gbmV3IEFycmF5TGlzdDw+KCk7CgogICAgcHVibGljIFByb2Nlc3NMaXN0KE9iamVjdCBwcm9jZXNzTGlzdCkgewogICAgICAgIHRoaXMucHJvY2Vzc0xpc3QgPSBwcm9jZXNzTGlzdDsKICAgICAgICB0cnkgewogICAgICAgICAgICBMaXN0PD8+IHByb2Nlc3NSZWNvcmRMaXN0ID0gKExpc3Q8Pz4pIFhwb3NlZEhlbHBlcnMuZ2V0T2JqZWN0RmllbGQocHJvY2Vzc0xpc3QsIEZpZWxkRW51bS5tTHJ1UHJvY2Vzc2VzKTsKICAgICAgICAgICAgZm9yIChPYmplY3QgcHJvYyA6IHByb2Nlc3NSZWNvcmRMaXN0KSB7CiAgICAgICAgICAgICAgICBQcm9jZXNzUmVjb3JkIHByb2Nlc3NSZWNvcmQgPSBuZXcgUHJvY2Vzc1JlY29yZChwcm9jKTsKICAgICAgICAgICAgICAgIHByb2Nlc3NSZWNvcmRzLmFkZChwcm9jZXNzUmVjb3JkKTsKICAgICAgICAgICAgfQogICAgICAgIH0gY2F0Y2ggKEV4Y2VwdGlvbiBpZ25vcmVkKSB7CgogICAgICAgIH0KICAgIH0KCiAgICBwdWJsaWMgc3RhdGljIHZvaWQgc2V0T29tQWRqKENsYXNzTG9hZGVyIGNsYXNzTG9hZGVyLGludCBwaWQsIGludCB1aWQsIGludCBvb21BZGopIHsKICAgICAgICBDbGFzczw/PiBQcm9jZXNzTGlzdCA9IFhwb3NlZEhlbHBlcnMuZmluZENsYXNzKENsYXNzRW51bS5Qcm9jZXNzTGlzdCwgY2xhc3NMb2FkZXIpOwogICAgICAgIFhwb3NlZEhlbHBlcnMuY2FsbFN0YXRpY01ldGhvZChQcm9jZXNzTGlzdCwgTWV0aG9kRW51bS5zZXRPb21BZGoscGlkLHVpZCxvb21BZGopOwogICAgfQp9Cg==
+package cn.myflv.android.noactive.server;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.myflv.android.noactive.entity.ClassEnum;
+import cn.myflv.android.noactive.entity.FieldEnum;
+import cn.myflv.android.noactive.entity.MethodEnum;
+import de.robv.android.xposed.XposedHelpers;
+import lombok.Data;
+
+@Data
+public class ProcessList {
+    private final Object processList;
+    private final List<ProcessRecord> processRecords = new ArrayList<>();
+
+    public ProcessList(Object processList) {
+        this.processList = processList;
+        try {
+            List<?> processRecordList = (List<?>) XposedHelpers.getObjectField(processList, FieldEnum.mLruProcesses);
+            for (Object proc : processRecordList) {
+                ProcessRecord processRecord = new ProcessRecord(proc);
+                processRecords.add(processRecord);
+            }
+        } catch (Exception ignored) {
+
+        }
+    }
+
+    public static void setOomAdj(ClassLoader classLoader,int pid, int uid, int oomAdj) {
+        Class<?> ProcessList = XposedHelpers.findClass(ClassEnum.ProcessList, classLoader);
+        XposedHelpers.callStaticMethod(ProcessList, MethodEnum.setOomAdj,pid,uid,oomAdj);
+    }
+}
